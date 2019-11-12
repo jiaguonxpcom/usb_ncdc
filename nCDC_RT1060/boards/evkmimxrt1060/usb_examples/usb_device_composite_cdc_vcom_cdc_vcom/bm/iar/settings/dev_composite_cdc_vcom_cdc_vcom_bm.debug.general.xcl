@@ -1,0 +1,17 @@
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\bin\armproc.dll" 
+
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\bin\armJET.dll" 
+
+"D:\work\RT\training\Code\nCDC_RT1060\boards\evkmimxrt1060\usb_examples\usb_device_composite_cdc_vcom_cdc_vcom\bm\iar\debug\dev_composite_cdc_vcom_cdc_vcom_bm.out" 
+
+--plugin="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\bin\armbat.dll" 
+
+--device_macro="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\config\debugger\NXP\iMXRT.dmac" 
+
+--device_macro="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\config\debugger\NXP\iMXRT_Trace.dmac" 
+
+--macro="D:\work\RT\training\Code\nCDC_RT1060\boards\evkmimxrt1060\usb_examples\usb_device_composite_cdc_vcom_cdc_vcom\bm\iar/evkmimxrt1060.mac" 
+
+
+
+
