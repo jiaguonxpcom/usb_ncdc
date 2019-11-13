@@ -6,7 +6,7 @@
 
 "-p" 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\CONFIG\debugger\NXP\MIMXRT1062xxx6A.ddf" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\CONFIG\debugger\NXP\MIMXRT1062xxx6A.ddf" 
 
 "--drv_verify_download" 
 

@@ -30,7 +30,7 @@ extern uint8_t if_vcom_dic[USB_DEVICE_CONFIG_CDC_ACM];
 usb_device_endpoint_struct_t g_cdcVcomDicEndpoints[USB_DEVICE_CONFIG_CDC_ACM][USB_CDC_VCOM_DIC_ENDPOINT_COUNT];
 
 // CDC Control EP
-usb_device_endpoint_struct_t g_cdcVcomCicEndpoints[USB_DEVICE_CONFIG_CDC_ACM][USB_CDC_VCOM_CIC_ENDPOINT_COUNT];
+//usb_device_endpoint_struct_t g_cdcVcomCicEndpoints[USB_DEVICE_CONFIG_CDC_ACM][USB_CDC_VCOM_CIC_ENDPOINT_COUNT];
 
 // CDC3 Control interface
 usb_device_interface_struct_t g_cdcVcomCicInterface[USB_DEVICE_CONFIG_CDC_ACM];
@@ -93,7 +93,7 @@ uint8_t g_UsbDeviceDescriptor[] = {
                              USB_DESCRIPTOR_LENGTH_CDC_CALL_MANAG +                        \
                              USB_DESCRIPTOR_LENGTH_CDC_ABSTRACT +                          \
                              USB_DESCRIPTOR_LENGTH_CDC_UNION_FUNC +                        \
-                             USB_DESCRIPTOR_LENGTH_ENDPOINT +                              \
+                             /*USB_DESCRIPTOR_LENGTH_ENDPOINT +      */                        \
                              USB_DESCRIPTOR_LENGTH_INTERFACE +                             \
                              USB_DESCRIPTOR_LENGTH_ENDPOINT +                              \
                              USB_DESCRIPTOR_LENGTH_ENDPOINT)
@@ -171,11 +171,13 @@ const uint8_t descriptor_cdc_temp_instance[DESCRIPTOR_INSTANCE_LEN] =
     0,        /* Interface number of subordinate interface in the Union  */
 
     /*Notification Endpoint */
+/*    
     USB_DESCRIPTOR_LENGTH_ENDPOINT, USB_DESCRIPTOR_TYPE_ENDPOINT,
     0 | (USB_IN << 7U), USB_ENDPOINT_INTERRUPT,
     USB_SHORT_GET_LOW(FS_CDC_VCOM_INTERRUPT_IN_PACKET_SIZE),
     USB_SHORT_GET_HIGH(FS_CDC_VCOM_INTERRUPT_IN_PACKET_SIZE), FS_CDC_VCOM_INTERRUPT_IN_INTERVAL,
-
+*/
+    
     /* Data Interface Descriptor */
     USB_DESCRIPTOR_LENGTH_INTERFACE, 
     USB_DESCRIPTOR_TYPE_INTERFACE, 
@@ -466,11 +468,11 @@ usb_status_t USB_DeviceSetSpeed(usb_device_handle handle, uint8_t speed)
         {
             if (USB_SPEED_HIGH == speed)
             {
-                g_cdcVcomCicEndpoints[i][j].maxPacketSize = HS_CDC_VCOM_INTERRUPT_IN_PACKET_SIZE;
+                //g_cdcVcomCicEndpoints[i][j].maxPacketSize = HS_CDC_VCOM_INTERRUPT_IN_PACKET_SIZE;
             }
             else
             {
-                g_cdcVcomCicEndpoints[i][j].maxPacketSize = FS_CDC_VCOM_INTERRUPT_IN_PACKET_SIZE;
+                //g_cdcVcomCicEndpoints[i][j].maxPacketSize = FS_CDC_VCOM_INTERRUPT_IN_PACKET_SIZE;
             }
         }
     }
@@ -556,7 +558,7 @@ void usb_data_init(void)
         g_cdcVcomCicInterface[i].alternateSetting      = 0;
         g_cdcVcomCicInterface[i].classSpecific         = NULL;
         g_cdcVcomCicInterface[i].endpointList.count    = USB_CDC_VCOM_CIC_ENDPOINT_COUNT;
-        g_cdcVcomCicInterface[i].endpointList.endpoint = g_cdcVcomCicEndpoints[i];
+       // g_cdcVcomCicInterface[i].endpointList.endpoint = g_cdcVcomCicEndpoints[i];
         
         g_cdcVcomDicInterface[i].alternateSetting      = 0;
         g_cdcVcomDicInterface[i].classSpecific         = NULL;
@@ -564,9 +566,9 @@ void usb_data_init(void)
         g_cdcVcomDicInterface[i].endpointList.endpoint = g_cdcVcomDicEndpoints[i];
         
         // end point
-        g_cdcVcomCicEndpoints[i][0].endpointAddress = ep_vcom_cic[i];
-        g_cdcVcomCicEndpoints[i][0].transferType  = USB_ENDPOINT_INTERRUPT;
-        g_cdcVcomCicEndpoints[i][0].maxPacketSize = FS_CDC_VCOM_INTERRUPT_IN_PACKET_SIZE;   
+//        g_cdcVcomCicEndpoints[i][0].endpointAddress = ep_vcom_cic[i];
+//        g_cdcVcomCicEndpoints[i][0].transferType  = USB_ENDPOINT_INTERRUPT;
+//        g_cdcVcomCicEndpoints[i][0].maxPacketSize = FS_CDC_VCOM_INTERRUPT_IN_PACKET_SIZE;   
             
         for(int j = 0; j<USB_CDC_VCOM_DIC_ENDPOINT_COUNT; j++)
         {
@@ -600,7 +602,9 @@ void config_descriptor_init(void)
     // copy cdc descritptor
     for(int i=0; i<USB_DEVICE_CONFIG_CDC_ACM; i++)
     {
-        memcpy(g_UsbDeviceConfigurationDescriptor + USB_DESCRIPTOR_LENGTH_CONFIGURE + DESCRIPTOR_INSTANCE_LEN*i,
+        memcpy(g_UsbDeviceConfigurationDescriptor + 
+                    USB_DESCRIPTOR_LENGTH_CONFIGURE + 
+                    DESCRIPTOR_INSTANCE_LEN*i,
                descriptor_cdc_temp_instance,
                DESCRIPTOR_INSTANCE_LEN);        
     }
@@ -619,8 +623,10 @@ void config_descriptor_init(void)
         p[3] = if_vcom_cic[i];
         p[4] = if_vcom_dic[i];
         p += USB_DESCRIPTOR_LENGTH_CDC_UNION_FUNC;  // 4
-        p[2] = ep_vcom_cic[i] | (USB_IN << 7U),
-        p += USB_DESCRIPTOR_LENGTH_ENDPOINT; 
+        
+        //p[2] = ep_vcom_cic[i] | (USB_IN << 7U),
+        //p += USB_DESCRIPTOR_LENGTH_ENDPOINT; 
+        
         // data interface.
         p[2] = if_vcom_dic[i];
         p += USB_DESCRIPTOR_LENGTH_INTERFACE;
@@ -654,9 +660,9 @@ void ep_init(void)
 {
     for(int i=0; i<USB_DEVICE_CONFIG_CDC_ACM; i++)
     {
-        ep_vcom_cic[i]          = 1 + i*2;
-        ep_vcom_dic_bulk_in[i]  = 2 + i*2;
-        ep_vcom_dic_bulk_out[i] = 2 + i*2;
+        //ep_vcom_cic[i]          = 1 + i*2;
+        ep_vcom_dic_bulk_in[i]  = i+1; //2 + i*2;
+        ep_vcom_dic_bulk_out[i] = i+1; //2 + i*2;
     }
 }
 
@@ -674,6 +680,7 @@ void interface_init(void)
 {
     for(int i=0; i<USB_DEVICE_CONFIG_CDC_ACM; i++)
     {
+        // keep interface for CIC
         if_vcom_cic[i]  = 0 + i*2;
         if_vcom_dic[i]  = 1 + i*2;
     }

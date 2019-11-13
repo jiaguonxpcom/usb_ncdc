@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\common\bin\cspybat" -f "D:\work\RT\training\Code\nCDC_RT1060\boards\evkmimxrt1060\usb_examples\usb_device_composite_cdc_vcom_cdc_vcom\bm\iar\settings\dev_composite_cdc_vcom_cdc_vcom_bm.debug.general.xcl" --backend -f "D:\work\RT\training\Code\nCDC_RT1060\boards\evkmimxrt1060\usb_examples\usb_device_composite_cdc_vcom_cdc_vcom\bm\iar\settings\dev_composite_cdc_vcom_cdc_vcom_bm.debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "D:\work\RT\USB\nCDC\usb_ncdc\nCDC_RT1060\boards\evkmimxrt1060\usb_examples\usb_device_composite_cdc_vcom_cdc_vcom\bm\iar\settings\dev_composite_cdc_vcom_cdc_vcom_bm.debug.general.xcl" --backend -f "D:\work\RT\USB\nCDC\usb_ncdc\nCDC_RT1060\boards\evkmimxrt1060\usb_examples\usb_device_composite_cdc_vcom_cdc_vcom\bm\iar\settings\dev_composite_cdc_vcom_cdc_vcom_bm.debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\common\bin\cspybat" -f "D:\work\RT\training\Code\nCDC_RT1060\boards\evkmimxrt1060\usb_examples\usb_device_composite_cdc_vcom_cdc_vcom\bm\iar\settings\dev_composite_cdc_vcom_cdc_vcom_bm.debug.general.xcl" "--debug_file=%~1" --backend -f "D:\work\RT\training\Code\nCDC_RT1060\boards\evkmimxrt1060\usb_examples\usb_device_composite_cdc_vcom_cdc_vcom\bm\iar\settings\dev_composite_cdc_vcom_cdc_vcom_bm.debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "D:\work\RT\USB\nCDC\usb_ncdc\nCDC_RT1060\boards\evkmimxrt1060\usb_examples\usb_device_composite_cdc_vcom_cdc_vcom\bm\iar\settings\dev_composite_cdc_vcom_cdc_vcom_bm.debug.general.xcl" "--debug_file=%~1" --backend -f "D:\work\RT\USB\nCDC\usb_ncdc\nCDC_RT1060\boards\evkmimxrt1060\usb_examples\usb_device_composite_cdc_vcom_cdc_vcom\bm\iar\settings\dev_composite_cdc_vcom_cdc_vcom_bm.debug.driver.xcl" 
 
 @echo off 
 :end

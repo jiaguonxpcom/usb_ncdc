@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <settings>
     <DebugChecksum>
-        <Checksum>2708689577</Checksum>
+        <Checksum>2021255926</Checksum>
     </DebugChecksum>
     <Jet>
-        <JetConnSerialNo>97969905</JetConnSerialNo>
-        <JetConnFoundProbes />
-        <PrevWtdReset>System</PrevWtdReset>
-        <OnlineReset>Software</OnlineReset>
         <DisableInterrupts>0</DisableInterrupts>
         <LeaveRunning>0</LeaveRunning>
         <MultiCoreRunAll>0</MultiCoreRunAll>
+        <OnlineReset>Software</OnlineReset>
+        <JetConnSerialNo>DAPLink CMSIS-DAP:022700001297caa800000000000000000000000097969905</JetConnSerialNo>
+        <JetConnFoundProbes />
+        <PrevWtdReset>System</PrevWtdReset>
     </Jet>
     <Stack>
         <FillEnabled>0</FillEnabled>
@@ -24,8 +24,8 @@
         <ByteLimit>50</ByteLimit>
     </Stack>
     <PlDriver>
+        <MemConfigValue>C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\CONFIG\debugger\NXP\MIMXRT1062xxx6A.ddf</MemConfigValue>
         <FirstRun>0</FirstRun>
-        <MemConfigValue>C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\CONFIG\debugger\NXP\MIMXRT1062xxx6A.ddf</MemConfigValue>
     </PlDriver>
     <ArmDriver>
         <EnableCache>1</EnableCache>
@@ -83,6 +83,12 @@
         <EventLSU>0</EventLSU>
         <EventSLEEP>0</EventSLEEP>
     </SWOTraceWindow>
+    <DisassembleMode>
+        <mode>0</mode>
+    </DisassembleMode>
+    <Breakpoints2>
+        <Count>0</Count>
+    </Breakpoints2>
     <TermIOLog>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>
@@ -92,12 +98,6 @@
         <LogFile>_ ""</LogFile>
         <Category>_ 0</Category>
     </LogFile>
-    <DisassembleMode>
-        <mode>0</mode>
-    </DisassembleMode>
-    <Breakpoints2>
-        <Count>0</Count>
-    </Breakpoints2>
     <Aliases>
         <Count>0</Count>
         <SuppressDialog>0</SuppressDialog>

@@ -13,7 +13,7 @@
 ******************************************************************************/
 // const
 #define USB_CDC_VCOM_INTERFACE_COUNT (2)
-#define USB_CDC_VCOM_CIC_ENDPOINT_COUNT (1)
+#define USB_CDC_VCOM_CIC_ENDPOINT_COUNT (0)
 #define USB_CDC_VCOM_DIC_ENDPOINT_COUNT (2)
 
 

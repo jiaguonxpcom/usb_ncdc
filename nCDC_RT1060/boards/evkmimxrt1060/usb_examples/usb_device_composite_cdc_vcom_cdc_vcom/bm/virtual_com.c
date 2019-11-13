@@ -316,8 +316,8 @@ usb_status_t USB_DeviceCdcVcomCallback(class_handle_t handle, uint32_t event, vo
  *
  * @return A USB error code or kStatus_USB_Success.
  */
-extern usb_device_endpoint_struct_t g_cdcVcomCicEndpoints[USB_DEVICE_CONFIG_CDC_ACM][USB_CDC_VCOM_CIC_ENDPOINT_COUNT];
-extern uint8_t ep_vcom_cic[USB_DEVICE_CONFIG_CDC_ACM];
+//extern usb_device_endpoint_struct_t g_cdcVcomCicEndpoints[USB_DEVICE_CONFIG_CDC_ACM][USB_CDC_VCOM_CIC_ENDPOINT_COUNT];
+//extern uint8_t ep_vcom_cic[USB_DEVICE_CONFIG_CDC_ACM];
 extern uint8_t ep_vcom_dic_bulk_in[USB_DEVICE_CONFIG_CDC_ACM];
 extern uint8_t ep_vcom_dic_bulk_out[USB_DEVICE_CONFIG_CDC_ACM];
 
@@ -329,8 +329,8 @@ usb_status_t USB_DeviceCdcVcomSetConfigure(class_handle_t handle, uint8_t config
         {
             g_deviceComposite->cdcVcom[i].attach = 1;
 
-            g_deviceComposite->cdcVcom[i].interruptEndpoint = ep_vcom_cic[i];
-            g_deviceComposite->cdcVcom[i].interruptEndpointMaxPacketSize = g_cdcVcomCicEndpoints[i][0].maxPacketSize;
+            //g_deviceComposite->cdcVcom[i].interruptEndpoint = ep_vcom_cic[i];
+            //g_deviceComposite->cdcVcom[i].interruptEndpointMaxPacketSize = g_cdcVcomCicEndpoints[i][0].maxPacketSize;
 
             g_deviceComposite->cdcVcom[i].bulkInEndpoint = ep_vcom_dic_bulk_in[i];
             g_deviceComposite->cdcVcom[i].bulkInEndpointMaxPacketSize = g_cdcVcomDicEndpoints[i][0].maxPacketSize;
